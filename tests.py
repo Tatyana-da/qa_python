@@ -33,15 +33,11 @@ class TestBooksCollector:
     def test_init_genre_has_five_elements(self, collector):
 
         collector.add_new_book('Книга')
-        available_genres = []
+    
         for genre in collector.genre:
-            try:
-                collector.set_book_genre('Книга', genre)
-                available_genres.append(genre)
-            except Exception:
-                pass
-        assert len(available_genres) == 5  #проверяю, что список genre НЕ пустой  
-
+            collector.set_book_genre('Книга', genre)
+            assert collector.get_book_genre('Книга') == genre 
+            
     def test_init_genre_contains_fantasy(self, collector):
 
         collector.add_new_book('Книга')

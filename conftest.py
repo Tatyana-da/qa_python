@@ -3,4 +3,7 @@ from main import BooksCollector
 
 @pytest.fixture
 def collector():
-    return BooksCollector()
+    collector = BooksCollector()
+    yield collector
+    collector.books_genre.clear()
+    collector.favorites.clear()
